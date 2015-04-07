@@ -1,0 +1,28 @@
+{
+  "name": "golombcodedsets",
+  "version": "0.0.1",
+  "description": "Golomb-coded sets (GCS) is a probabilistic data structure conceptually similar to the famous Bloom filters, but with a more compact in-memory representation, and a slower query time.",
+  "main": "golombcodedsets.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mielvds/golombcodedsets.js"
+  },
+  "keywords": [
+    "approximate",
+    "membership",
+    "query",
+    "data",
+    "structure",
+    "bloom",
+    "filter"
+  ],
+  "author": "Giovanni Bajo, Miel Vander Sande",
+  "license": "http://unlicense.org/",
+  "bugs": {
+    "url": "https://github.com/mielvds/golombcodedsets.js/issues"
+  },
+  "homepage": "https://github.com/mielvds/golombcodedsets.js"
+}
