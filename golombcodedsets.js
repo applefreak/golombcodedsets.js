@@ -26,6 +26,7 @@
 // This is a refactored node package based on original implementation of https://github.com/rasky/gcs
 
 var md5 = require('./md5');
+const { toBuffer, toArrayBuffer } = require('./utils')
 
 function GCSBuilder(N, P, hash) {
   this._N = N;
@@ -115,11 +116,18 @@ GCSBuilder.prototype = {
     dw.setUint32(0, this._N);
     dw.setUint32(4, this._P);
     return res.buffer;
+  },
+  toBase64: function() {
+    let finalized = this.finalize()
+    return toBuffer(finalized).toString('base64');
   }
 };
 
 
 function GCSQuery(_arrBuff, hash) {
+  if (typeof _arrBuff === 'string') {
+    _arrBuff = toArrayBuffer(new Buffer(_arrBuff, 'base64'))
+  }
   var dw = new DataView(_arrBuff);
   this._N = dw.getUint32(0);
   this._P = dw.getUint32(4);
