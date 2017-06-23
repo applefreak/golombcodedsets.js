@@ -15,7 +15,7 @@ const hash = builder.toBase64()
 
 console.log('base64 representation of the set:', hash)
 
-var query = new gcs.GCSQuery(hash)
+const query = new gcs.GCSQuery(hash)
 
 console.log('Checking "item2":', query.query('item2'))
 console.log('Checking "item3":', query.query('item3'))
@@ -24,12 +24,14 @@ console.log('Checking "item3":', query.query('item3'))
 # Custom hash functions
 
 The default are the 32 least significant bits of a md5 hash;
-Using murmurhash (faster) instead:
+Using murmurhash (default now) instead:
 
-	var murmurhash = require('murmurhash');
+```javascript
+const murmurhash = require('murmurhash');
 
-	var builder = new gcs.GCSBuilder(numberOfItems, error_probability, murmurhash.v3);
-	var query = new gcs.GCSQuery(arrayBuffer, murmurhash.v3);
+const builder = new gcs.GCSBuilder(numberOfItems, error_probability, murmurhash.v3);
+const query = new gcs.GCSQuery(arrayBuffer, murmurhash.v3);
+```
 
 Parameter of the hash function should be a string, while the output is an integer. 
 	
