@@ -197,6 +197,24 @@ GCSQuery.prototype = {
       }
     }
     return false;
+  },
+  toBuilder: function () {
+    let values = [0]
+    var n = 0,
+      d,
+      f = this._golombDec(this._u8arr, this._P);
+    while (1) {
+      try {
+        d = f();
+        n += d;
+        values.push(n)
+      } catch (err) {
+        break;
+      }
+    }
+    let builder = new GCSBuilder(this._N, this._P)
+    builder._values = values
+    return builder
   }
 };
 

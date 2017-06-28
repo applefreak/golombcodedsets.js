@@ -1,6 +1,6 @@
 {
   "name": "golombcodedsets-with-base64",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Golomb-coded sets (GCS) is a probabilistic data structure conceptually similar to the famous Bloom filters, but with a more compact in-memory representation, and a slower query time.",
   "main": "golombcodedsets.js",
   "scripts": {
